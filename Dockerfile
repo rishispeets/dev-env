@@ -7,11 +7,6 @@ ENV LANGUAGE=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 RUN apt update && apt upgrade && apt install -y locales && locale-gen en_US.UTF-8
 
-# Colors and italics for tmux
-COPY xterm-256color-italic.terminfo /root
-RUN tic /root/xterm-256color-italic.terminfo
-ENV TERM=xterm-256color-italic
-
 # Common packages
 RUN apt install -y \
       build-essential \

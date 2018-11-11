@@ -31,6 +31,7 @@ RUN apt-get install -y \
       software-properties-common \
       tmux \
       mosh \
+      neovim \
       tzdata \
       wget \
       zsh 

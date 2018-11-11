@@ -1,6 +1,6 @@
 Docker Dev Env
 ======
-This is the Docker environment that I use for remote development. When using remote instances, setting up dotfiles is too time-consuming. Using Docker and the cloud makes my development environment extremely portable. 
+This is the Docker environment that I use for remote development.  
 
 ## Tip
 

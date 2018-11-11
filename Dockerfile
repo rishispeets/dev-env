@@ -62,3 +62,8 @@ RUN git clone https://github.com/gpakosz/.tmux.git
 RUN ln -s -f .tmux/.tmux.conf
 RUN cp .tmux/.tmux.conf.local .
 
+# Install Oh My Zsh!
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+
+CMD ["zsh"]
+

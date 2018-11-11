@@ -4,7 +4,7 @@ This is the Docker environment that I use for remote development. When using rem
 
 ## Tip
 
-Running this as a privileged container with `--priviliged` gives the image almost all the capabilities of the host machine. That way, you can more easily develop Docker-in-Docker.
+Running this as a privileged container with `--priviliged` gives the image almost all the capabilities of the host machine.
 
 ## Credits
 Based on https://github.com/jayniz/zsh-tmux-neovim-docker

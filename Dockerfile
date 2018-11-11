@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-
+ 
 ENV HOME /root
 # Prevents a time zone question from some package to halt install
 ENV DEBIAN_FRONTEND noninteractive

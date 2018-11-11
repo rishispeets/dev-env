@@ -1,7 +1,7 @@
 Docker Dev Env
 ======
 
-> https://hub.docker.com/r/spadesr/devenv/
+> https://hub.docker.com/r/spadesr/dev-env/
 
 This is the Docker environment that I use for remote development.  
 

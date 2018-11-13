@@ -1,9 +1,6 @@
 # Only the latest fancy sauce will do
 FROM ubuntu:18.04
 
-# You can pass your own username
-ARG USER=rishi
-
 # Prevents a time zone question from tzdata that halts progress
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -17,25 +14,6 @@ ENV TERM xterm-256color
 ENV LANGUAGE=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 RUN apt-get update && apt-get install -y locales && locale-gen en_US.UTF-8
-
-# Add a new user
-RUN adduser $USER --shell /bin/zsh
-
-# Make superuser
-RUN usermod -aG sudo $USER
-
-# TODO: Use intermediate containers for getting key in the future
-# Get the ssh key from mounted volume that will be used to connect to container
-COPY /tmp/authorized_keys /home/$USER/.ssh/authorized_keys
-
-# Verify key permissions
-RUN chmod 700 /home/$USER/.ssh
-RUN chmod 600 /home/$USER/.ssh/authorized_keys
-
-# Switch to new user
-RUN su - $USER
-
-# TODO: Disable password authentication for SSH here 
 
 # Install common packages
 RUN apt-get install -y \
@@ -95,3 +73,6 @@ RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -
 
 # Set the default shell to zsh
 RUN chsh -s /usr/bin/zsh
+
+CMD ["zsh"]
+

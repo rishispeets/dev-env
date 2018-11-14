@@ -50,19 +50,6 @@ RUN add-apt-repository ppa:cpick/hub
 RUN apt-get update
 RUN apt-get install -y hub
 
-# Install docker
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-RUN add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-RUN apt-get update && apt-get install -y docker-ce
-
-# Install docker-compose
-WORKDIR /usr/local/bin
-RUN curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
-RUN chmod +x /usr/local/bin/docker-compose
-
 # Install Oh My Tmux!
 RUN git clone https://github.com/gpakosz/.tmux.git
 RUN ln -s -f .tmux/.tmux.conf
@@ -73,6 +60,8 @@ RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -
 
 # Set the default shell to zsh
 RUN chsh -s /usr/bin/zsh
+
+RUN cd ~
 
 CMD ["zsh"]
 
